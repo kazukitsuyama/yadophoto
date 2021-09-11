@@ -2,6 +2,7 @@
 @include('navbar')
 @section('content')
 @include('error_card_list')
+<link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 <div class="col-md-offset-2 mb-4 edit-profile-wrapper">
   <div class="row">
     <div class="col-md-8 mx-auto">
@@ -14,7 +15,7 @@
             <label for="user_profile_photo">プロフィール写真</label><br>
                 @if ($user->profile_photo)
                     <p>
-                        <img src="{{ asset('storage/user_images/' . $user->profile_photo) }}" alt="avatar" />
+                        <img class="round-img" src="{{ asset('storage/user_images/' . $user->profile_photo) }}" alt="avatar" />
                     </p>
                 @endif
             <input type="file" name="user_profile_photo"  value="{{ old('user_profile_photo',$user->id) }}" accept="image/jpeg,image/gif,image/png" />

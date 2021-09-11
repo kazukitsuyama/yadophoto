@@ -3,6 +3,7 @@
 
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <div class="profile-wrap">
   <div class="row">
     <div class="col-md-4 text-center">
