@@ -14,9 +14,13 @@ class PostsController extends Controller
     }
 
     public function index()
-  {
-        return view('post/index');
-  }
+    {
+        $posts = Post::limit(50)
+            ->orderBy('created_at', 'desc')
+            ->get();
+            
+        return view('post/index', ['posts' => $posts]);
+    }
 
   public function new()
     {
