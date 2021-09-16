@@ -3,7 +3,7 @@
 @section('content')
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ asset('css/edit.css') }}">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @foreach ($posts as $post) 
   <div class="col-md-8 col-md-2 mx-auto">
     <div class="card-wrap">
@@ -19,12 +19,18 @@
           <a class="black-color no-text-decoration" title="{{ $post->user->name }}" href="/users/{{ $post->user->id }}">
             <strong>{{ $post->user->name }}</strong>
           </a>
+          @if ($post->user->id == Auth::user()->id)
+          	<a class="ml-auto mx-0 my-auto" rel="nofollow" href="/postsdelete/{{ $post->id }}">
+              <div class="delete-post-icon">
+              </div>
+          	</a>
+          @endif
         </div>
 
         <a href="/users/{{ $post->user->id }}">
           <img src="/storage/post_images/{{ $post->id }}.jpg" class="card-img-top" />
         </a>
-
+        
 
       </div>
     </div>
